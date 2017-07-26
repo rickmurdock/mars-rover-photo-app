@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <GitImageForm />
+        <GitImageForm style={{textAlign:"center"}}/>
       </div>
     );
   }

@@ -4,7 +4,16 @@ export default class ImageDisplay extends Component {
   
   noPhotosHelper() {
     if (!this.props.images.length) {
-      return <div>No Images Found</div>;
+      return (
+        <div>
+          <br/>
+          <br />
+          <img src={require('../images/marvinTheMartian.svg')} alt="" style={{width:"10%", float:"center"}}/>
+          <br/>
+          <br/>
+          No Images Found
+        </div>
+      );
     }
   }
 

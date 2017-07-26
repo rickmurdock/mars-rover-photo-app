@@ -37,11 +37,9 @@ export default class GetImageForm extends Component {
 
     let imageUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${num}&camera=${cam}&api_key=${API_KEY}`;
 
-    console.log("imageUrl: ", imageUrl);
     fetch(imageUrl)
       .then(response => response.json())
       .then(data => {
-        console.log("response data", data);
         this.setState({ images: data.photos });
       })
       .catch(error => {
@@ -51,21 +49,26 @@ export default class GetImageForm extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{textAlign:"center"}}>
+        <div style={{textAlign:"center", top:0, position:"fixed", width:"100%"}}>
+        <h1 style={{color:"orange", fontFamily:"Orbitron", textShadow:"2px 2px 5px red"}}>
+          <img src={require('../images/nasaMarvin.png')} alt="Mars Exploration Rover logo" style={{width:"10%", float:"left", paddingLeft:30}}/>
+            MARS ROVERS PHOTOS
+          <img src={require('../images/nasaLogo.png')} alt="NASA logo" style={{width:"10%", float:"right", paddingRight:30}}/></h1>
         <form onSubmit={this.fetchMarsAPI}>
-          <label htmlFor="rover">Rover</label>
+          <label htmlFor="rover"> Rover </label>
           <select onChange={this.handleRover} id="rover">
             <option value="Curiosity">Curiosity</option>
             <option value="Opportunity">Opportunity</option>
             <option value="Spirit">Spirit</option>
           </select>
-          <label htmlFor="camera">Camera Type</label>
+          <label htmlFor="camera"> Camera Type </label>
           <select onChange={this.handleCamera} id="rover">
             <option value="fhaz">FHAZ (Front Hazard)</option>
             <option value="rhaz">RHAZ (Rear Hazard)</option>
             <option value="navcam">NAVCAM (Navigation Cam)</option>
           </select>
-          <label htmlFor="sol">Martian Sol: 1000-2000</label>
+          <label htmlFor="sol"> Martian Sol: 1000-2000 </label>
           <input
             type="number"
             onChange={this.handleSol}
@@ -76,11 +79,13 @@ export default class GetImageForm extends Component {
         </form>
         <br />
         <GetImageButton action={this.fetchRoverImage} />
-        <h3>
+        {/*<h3>
           {this.state.rover}
-        </h3>
-
-        <ImageDisplay images={this.state.images} />
+        </h3>*/}
+        </div>
+        <div style={{marginTop:170}}>
+          <ImageDisplay images={this.state.images} />
+        </div>
       </div>
     );
   }
