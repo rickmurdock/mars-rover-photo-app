@@ -57,7 +57,9 @@ export default class GetImageForm extends Component {
         
     let selectStyle = {
       color: "#0F68B1",
-      fontSize: 18  
+      fontSize: 18,
+      borderRadius: 5,
+      border: "1px solid blue"  
     };
 
     return (
