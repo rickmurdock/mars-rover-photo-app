@@ -1,6 +1,12 @@
 # Mars Rovers - Photo App
-I
-n this project, you will create an application using the NASA MARS ROVER API that will feature stateless and stateful components and use inline styling for your styles.
+
+In this project, you will create an application using the NASA MARS ROVER API that will feature stateless and stateful components and use inline styling for your styles.
+
+---
+
+View the finished project: http://marsroversphotos.surge.sh/
+
+---
 
 There are no starter files for this application.
 
